@@ -1,0 +1,7 @@
+include: package:effective_dart/analysis_options.1.2.0.yaml
+
+linter:
+  rules:
+    lines_longer_than_80_chars: false
+    one_member_abstracts: false
+    avoid_classes_with_only_static_members: false
