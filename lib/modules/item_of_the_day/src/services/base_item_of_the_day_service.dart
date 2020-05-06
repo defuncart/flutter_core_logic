@@ -1,6 +1,6 @@
 import 'dart:convert';
 
-import 'package:flutter/services.dart' show rootBundle;
+import 'package:flutter/services.dart' show AssetBundle;
 import 'package:meta/meta.dart';
 
 // ignore: prefer_relative_imports
@@ -26,8 +26,10 @@ abstract class BaseItemOfTheDayService implements IItemOfTheDayService {
   int get _cycleLength => _order?.length;
 
   /// Initializes the service
-  Future<void> init() async {
-    final data = await rootBundle.loadString(jsonAssetPath);
+  ///
+  /// `assetBundle` is an AssetBundle (i.e. rootBundle) from which the json asset can be loaded
+  Future<void> init({@required AssetBundle assetBundle}) async {
+    final data = await assetBundle.loadString(jsonAssetPath);
     final importModel = ImportModel.fromJson(json.decode(data));
     _order = importModel?.order;
     _startDate = importModel?.startDate;

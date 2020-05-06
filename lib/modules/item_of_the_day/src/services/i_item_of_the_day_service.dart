@@ -1,7 +1,12 @@
+import 'package:meta/meta.dart';
+import 'package:flutter/services.dart';
+
 /// A service which determines what item should be showcased on given days
 abstract class IItemOfTheDayService {
   /// Initializes the service
-  Future<void> init();
+  ///
+  /// `assetBundle` is an AssetBundle (i.e. rootBundle) from which the json asset can be loaded
+  Future<void> init({@required AssetBundle assetBundle});
 
   /// Returns the id of the item of the day for today
   String get today;
