@@ -15,6 +15,10 @@ abstract class BaseItemOfTheDayService implements IItemOfTheDayService {
   @protected
   String get jsonAssetPath;
 
+  /// Whether the user's local time or utc should be considered
+  @protected
+  bool get syncWithLocalTime => true;
+
   /// Whether the items should be looped when all have already been shown
   @protected
   bool get shouldLoop => false;
@@ -40,7 +44,8 @@ abstract class BaseItemOfTheDayService implements IItemOfTheDayService {
   /// `null` implies that there is no valid item for today
   String get today {
     if (_hasValidData) {
-      final numberDaysSinceCycleBegan = DateTimeUtils.todayUtcMidnight.difference(_startDate).inDays;
+      final todayMidnight = syncWithLocalTime ? DateTimeUtils.todayLocalMidnight : DateTimeUtils.todayUtcMidnight;
+      final numberDaysSinceCycleBegan = todayMidnight.difference(_startDate).inDays;
       if (numberDaysSinceCycleBegan >= 0 && (numberDaysSinceCycleBegan < _cycleLength || shouldLoop)) {
         final index = numberDaysSinceCycleBegan % _cycleLength;
         return _order[index];

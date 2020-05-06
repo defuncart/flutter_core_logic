@@ -8,6 +8,12 @@ abstract class DateTimeUtils {
     return DateTime.utc(nowUtc.year, nowUtc.month, nowUtc.day);
   }
 
+  /// Returns a `DateTime` for today at midnight in local time
+  static DateTime get todayLocalMidnight {
+    final nowLocal = DateTime.now();
+    return DateTime.utc(nowLocal.year, nowLocal.month, nowLocal.day);
+  }
+
   /// Returns a `DateTime` for a day with `dayDifference` from today at midnight in UTC
   static DateTime computeUtcMidnight({@required int dayDifference}) {
     final utc = DateTime.now().toUtc().add(Duration(days: dayDifference));
