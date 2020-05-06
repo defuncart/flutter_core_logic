@@ -33,10 +33,12 @@ abstract class BaseItemOfTheDayService implements IItemOfTheDayService {
   ///
   /// `assetBundle` is an AssetBundle (i.e. rootBundle) from which the json asset can be loaded
   Future<void> init({@required AssetBundle assetBundle}) async {
-    final data = await assetBundle.loadString(jsonAssetPath);
-    final importModel = ImportModel.fromJson(json.decode(data));
-    _order = importModel?.order;
-    _startDate = importModel?.startDate;
+    if (assetBundle != null) {
+      final data = await assetBundle.loadString(jsonAssetPath);
+      final importModel = ImportModel.fromJson(json.decode(data));
+      _order = importModel?.order;
+      _startDate = importModel?.startDate;
+    }
   }
 
   /// Returns the id of the item of the day for today
