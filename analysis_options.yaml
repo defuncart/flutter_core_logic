@@ -1,7 +1,1 @@
-include: package:effective_dart/analysis_options.yaml
-
-linter:
-  rules:
-    lines_longer_than_80_chars: false
-    one_member_abstracts: false
-    avoid_classes_with_only_static_members: false
+include: package:flutter_analysis_options/analysis_options.yaml
