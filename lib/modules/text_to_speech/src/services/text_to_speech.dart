@@ -55,7 +55,7 @@ class TextToSpeech implements ITextToSpeech {
 
   /// Sets the playback language
   Future<bool> setLanguage(String language) async {
-    if (await (_tts.isLanguageAvailable(language) as FutureOr<bool>)) {
+    if (await _tts.isLanguageAvailable(language)) {
       final result = await _tts.setLanguage(language);
       return result == 1;
     } else {
