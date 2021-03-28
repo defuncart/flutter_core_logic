@@ -1,16 +1,17 @@
 name: flutter_core_logic
 description: Core logic used in various apps and games.
 version: 0.0.1
+publish_to: none
 homepage: https://github.com/defuncart/flutter_core_logic
 
 environment:
-  sdk: ">=2.7.0 <3.0.0"
+  sdk: '>=2.12.0 <3.0.0'
 
 dependencies:
   flutter:
     sdk: flutter
-  hive: ^1.4.1+1
-  flutter_tts: ^0.9.1
+  hive: ^2.0.0
+  flutter_tts: ^3.0.0
 
 dev_dependencies:
   flutter_test:
@@ -18,5 +19,3 @@ dev_dependencies:
   flutter_analysis_options:
     git:
       url: https://github.com/defuncart/flutter_analysis_options.git
-
-flutter:

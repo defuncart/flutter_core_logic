@@ -1,13 +1,10 @@
-import 'package:meta/meta.dart';
-
-// ignore_for_file: public_member_api_docs
 class ImportModel {
   final List<String> order;
   final DateTime startDate;
 
   ImportModel({
-    @required this.order,
-    @required this.startDate,
+    required this.order,
+    required this.startDate,
   });
 
   factory ImportModel.fromJson(Map<String, dynamic> json) => ImportModel(
